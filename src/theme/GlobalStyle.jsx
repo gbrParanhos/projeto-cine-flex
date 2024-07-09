@@ -6,11 +6,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1{
-    font-family: Righteous;
+    font-family: Raleway;
   }
 
   p,span{
-    font-family: Recursive;
+    font-family: Sarala;
   }
 `
  
