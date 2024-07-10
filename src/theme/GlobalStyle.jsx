@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: Raleway;
   }
 
-  p,span{
+  a,p,span{
     font-family: Sarala;
   }
 `

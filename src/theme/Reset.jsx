@@ -8,7 +8,7 @@ const ResetStyle = createGlobalStyle`
   button {border: none;background-color: transparent;padding: 0}
   blockquote,q{quotes:none}
   blockquote:before,blockquote:after,q:before,q:after{content:none}
-  a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+  a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
   ins{background-color:#ff9;color:#000;text-decoration:none}
   mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
   del{text-decoration:line-through}

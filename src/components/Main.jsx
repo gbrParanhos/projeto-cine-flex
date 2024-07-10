@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components"
+import styled from "styled-components"
 import Movie from "./Movie"
 import Loader from "./Loader"
 import { useEffect, useState } from "react"
@@ -10,7 +10,10 @@ const Main = () => {
   useEffect(() => {
     axios.get('https://mock-api.driven.com.br/api/v8/cineflex/movies')
     .then(res => setMovies(res.data))
-    .catch()
+    .catch(() => {
+      alert('Ocorreu um erro ao carregar os Filmes! A página será reiniciada.');
+      location.reload();
+    })
   },[])
 
   if (movies === null) return <Loader/>
@@ -18,11 +21,16 @@ const Main = () => {
   return(
     <StyledMain>
       <RouteTitle>Em Cartaz</RouteTitle>
-      <Movies>
+      <ListMovies>
         {movies.map(movie => (
-          <Movie key={movie.id} id={movie.id} src={movie.posterURL} alt={movie.title} />
+          <Movie
+            key={movie.id}
+            id={movie.id}
+            src={movie.posterURL}
+            alt={movie.title}
+          />
         ))}
-      </Movies>
+      </ListMovies>
     </StyledMain>
   )
 }
@@ -42,7 +50,7 @@ const RouteTitle = styled.p`
   color:white;
 `
 
-const Movies = styled.ol`
+const ListMovies = styled.ol`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

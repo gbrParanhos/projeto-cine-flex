@@ -1,12 +1,12 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 const Movie = ({id, src, alt}) => {
-  console.log("id",id)
-  console.log("url",src)
-  console.log("title",alt)
   return(
     <StyledMovie>
-      <ImgMovie src={src} alt={alt} />
+      <Link to={`/sessoes/${id}`}>
+        <ImgMovie src={src} alt={alt} />
+      </Link>
     </StyledMovie>
   )
 }

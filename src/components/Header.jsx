@@ -11,11 +11,13 @@ const Header = () => {
 }
 
 const StyledHeader = styled.header`
-  display:flex;
+  position: fixed;
+  top: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 10px;
-  height:67px;
+  height:65px;
   width:100%;
   background-color: #EE897F;
   z-index: 30;

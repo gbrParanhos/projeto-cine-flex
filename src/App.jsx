@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import styled from "styled-components"
 import Main from "./components/Main"
 import Header from "./components/Header"
-import Sessions from "./components/Sessions"
+import DaySessions from "./components/DaySessions"
 import Seats from "./components/Seats"
 import Ticket from "./components/Ticket"
 
@@ -14,8 +14,8 @@ const App = () => {
         <Header/>
         <Routes>
           <Route path="/" element={<Main></Main>}/>
-          <Route path="/sessoes/:idSession" element={<Sessions></Sessions>}/>
-          <Route path="/assentos/:idSeats" element={<Seats></Seats>}/>
+          <Route path="/sessoes/:idMovie" element={<DaySessions></DaySessions>}/>
+          <Route path="/assentos/:idSession" element={<Seats></Seats>}/>
           <Route path="/sucesso" element={<Ticket></Ticket>}/>
         </Routes>
       </Layout>
@@ -24,7 +24,9 @@ const App = () => {
 }
 
 const Layout = styled.div`
-  width:100vw;
+  padding-top: 65px;
+  width: 100vw;
+  min-height: 100vh;
   background-color: #212226;
 `
 
