@@ -9,7 +9,4 @@ export default defineConfig({
     outDir: '../dist', // saída para a pasta dist na raiz do projeto
     emptyOutDir: true,
   },
-  server: {
-    open: 'index.html', // abrir o index.html da pasta src
-  },
 })

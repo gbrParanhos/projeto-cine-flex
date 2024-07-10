@@ -18,6 +18,7 @@ const StyledHeader = styled.header`
   height:67px;
   width:100%;
   background-color: #EE897F;
+  z-index: 30;
 `
 
 const Logo = styled.img`

@@ -25,7 +25,6 @@ const App = () => {
 
 const Layout = styled.div`
   width:100vw;
-  height:100vh; //por enquanto só
   background-color: #212226;
 `
 
