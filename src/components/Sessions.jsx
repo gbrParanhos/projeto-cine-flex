@@ -8,9 +8,9 @@ const Sessions = ({weekday, date, listSessions}) => {
       <ListSessions>
         {listSessions.map(session => (
           <Session key={session.id} >
-            <Link to={`/assentos/${session.id}`}>
+            <LinkSeats to={`/assentos/${session.id}`}>
               <Time>{session.name}</Time>
-            </Link>
+            </LinkSeats>
           </Session>
         ))}
       </ListSessions>
@@ -45,16 +45,21 @@ const ListSessions = styled.ol`
 `
 
 const Session = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 85px;
   height: 40px;
   border-radius: 4px;
   border: 2px solid #EE897F;
 `
 
-const Time = styled.span`
+const LinkSeats = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`
+
+const Time = styled.p`
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.04em;

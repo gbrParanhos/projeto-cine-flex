@@ -9,8 +9,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: Raleway;
   }
 
-  a,p,span{
+  a,p{
     font-family: Sarala;
+  }
+
+  span{
+    font-family: Roboto;
   }
 `
  

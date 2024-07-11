@@ -5,9 +5,10 @@ import Header from "./components/Header"
 import DaySessions from "./components/DaySessions"
 import Seats from "./components/Seats"
 import Ticket from "./components/Ticket"
+import { useState } from "react"
 
 const App = () => {
-
+  const [order, setOrder] = useState(null)
   return (
     <BrowserRouter>
       <Layout>
@@ -15,7 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Main></Main>}/>
           <Route path="/sessoes/:idMovie" element={<DaySessions></DaySessions>}/>
-          <Route path="/assentos/:idSession" element={<Seats></Seats>}/>
+          <Route path="/assentos/:idSession" element={<Seats order={order} setOrder={setOrder} ></Seats>}/>
           <Route path="/sucesso" element={<Ticket></Ticket>}/>
         </Routes>
       </Layout>
