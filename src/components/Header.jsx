@@ -1,11 +1,14 @@
 import styled from "styled-components"
 import logo from "../assets/logo.svg"
+import { Link } from "react-router-dom"
 
 const Header = () => {
   return(
     <StyledHeader>
-      <Logo src={logo} alt="Logo-CineFlex" />
-      <HeaderTitle>CineFlex</HeaderTitle>
+      <LinkMainPage to='/'>
+        <Logo src={logo} alt="Logo-CineFlex" />
+        <HeaderTitle>CineFlex</HeaderTitle>
+      </LinkMainPage>
     </StyledHeader>
   )
 }
@@ -16,11 +19,17 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 10px;
   height:65px;
   width:100%;
   background-color: #EE897F;
   z-index: 30;
+`
+
+const LinkMainPage = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
 `
 
 const Logo = styled.img`

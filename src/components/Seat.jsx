@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 const Seat = ({ seats, setSeats, seatIndex, seatNumber, isAvailable }) => {
+
   const choseSeat = (ind) => {
     const listSeats = [...seats]
     if(listSeats[ind].isChosed) {
@@ -11,7 +12,7 @@ const Seat = ({ seats, setSeats, seatIndex, seatNumber, isAvailable }) => {
       setSeats(listSeats)
     }
   }
-  console.log(seats)
+
   return(
     <StyledSeat onClick={() => isAvailable && choseSeat(seatIndex)} isAvailable={isAvailable} isChosed={seats[seatIndex].isChosed} >
       <SeatNumber>{seatNumber}</SeatNumber>
@@ -23,6 +24,7 @@ const StyledSeat = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   width: 25px;
   height: 25px;
   border-radius: 12px;
@@ -31,7 +33,7 @@ const StyledSeat = styled.li`
     if (!isAvailable) return '#2B2D36'
     if (!isChosed) return '#9DB899'
     return '#FADBC5'
-    } };
+    }};
 `
 
 const SeatNumber = styled.span`

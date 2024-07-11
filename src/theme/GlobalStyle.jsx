@@ -9,11 +9,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: Raleway;
   }
 
-  a,p{
+  a,p,label,button{
     font-family: Sarala;
   }
 
-  span{
+  span,input{
     font-family: Roboto;
   }
 `

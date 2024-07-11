@@ -8,14 +8,14 @@ const ResetStyle = createGlobalStyle`
   button {border: none;background-color: transparent;padding: 0}
   blockquote,q{quotes:none}
   blockquote:before,blockquote:after,q:before,q:after{content:none}
-  a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+  a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none;-webkit-tap-highlight-color:transparent;}
   ins{background-color:#ff9;color:#000;text-decoration:none}
   mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
   del{text-decoration:line-through}
   abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
   table{border-collapse:collapse;border-spacing:0}
-  hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
-  input,select{vertical-align:middle}
+  hr{display:block;height:1px;border:none;margin:0;padding:0}
+  input,select{vertical-align:middle;border:none;}
 `
  
 export default ResetStyle
