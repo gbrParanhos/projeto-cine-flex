@@ -40,7 +40,7 @@ const Seats = ({ order, setOrder }) => {
   }
 
   if (seats === null) return <Loader/>
-  
+
   return(
     <StyledSeats>
       <RouteTitle>Selecione o(s) Assento(s)</RouteTitle>
@@ -124,11 +124,11 @@ const InputForm = styled(ReactInputMask)`
 `
 
 const ButtonForm = styled.button`
+  cursor: pointer;
   height: 40px;
   margin-top: 25px;
   border-radius: 8px;
   background-color: #EE897F;
-  font-family: Sarala;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.04em;
