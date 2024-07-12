@@ -19,7 +19,9 @@ const roll = keyframes`
 
 const StyledLoader = styled.div`
   display: flex;
-  margin: 30px auto;
+  position: fixed;
+  top: 95px;
+  left: calc( 50% - 28px );
   flex-direction: column;
   width: 56px;
   row-gap: 5px;

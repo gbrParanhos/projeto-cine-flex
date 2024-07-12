@@ -12,7 +12,10 @@ const DaySessions = () => {
   useEffect(() => {
     axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${idMovie}/showtimes`)
     .then(res => setDaySessions(res.data.days))
-    .catch(() => console.log('deu ruim'))
+    .catch(() => {
+      alert('Ocorreu um erro ao carregar as Sessões! A página será reiniciada.');
+      location.reload();
+    })
   },[])
 
   if (daySessions === null) return <Loader/>

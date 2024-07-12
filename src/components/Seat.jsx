@@ -14,7 +14,7 @@ const Seat = ({ seats, setSeats, seatIndex, seatNumber, isAvailable }) => {
   }
 
   return(
-    <StyledSeat onClick={() => isAvailable && choseSeat(seatIndex)} isAvailable={isAvailable} isChosed={seats[seatIndex].isChosed} >
+    <StyledSeat onClick={() => isAvailable ? choseSeat(seatIndex) : alert('Esse assento não está disponível')} isAvailable={isAvailable} isChosed={seats[seatIndex].isChosed} >
       <SeatNumber>{seatNumber}</SeatNumber>
     </StyledSeat>
   )

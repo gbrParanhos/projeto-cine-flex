@@ -50,7 +50,7 @@ const RouteTitle = styled.p`
   color:white;
 `
 
-const ListMovies = styled.ol`
+const ListMovies = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

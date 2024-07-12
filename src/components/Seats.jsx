@@ -2,8 +2,9 @@ import styled from "styled-components"
 import Loader from "./Loader"
 import Seat from "./Seat"
 import axios from "axios"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import ReactInputMask from "react-input-mask"
 
 const Seats = ({ order, setOrder }) => {
   const [seats, setSeats] = useState(null)
@@ -23,12 +24,23 @@ const Seats = ({ order, setOrder }) => {
 
   const buyTickets = (e) => {
     e.preventDefault()
-    setName('')
-    setCpf('')
-    navigate('/sucesso')
+    if (cpf.length !== 14) return alert('CPF inválido')
+    const chosedSeats = seats.filter(seat => seat.isChosed)
+    if (chosedSeats.length === 0) return alert('Você não selecionou nenhum assento')
+    setOrder({...order, seats:chosedSeats, name:name, cpf:cpf})
+    const chosedIds = chosedSeats.map(chosedSeat => chosedSeat.id)
+    axios.post('https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many',{ ids:chosedIds, name:name, cpf:cpf })
+    .then(() => {
+      navigate('/sucesso');
+    })
+    .catch(() => {
+      alert('Ocorreu um erro ao fazer a compra! A página será reiniciada.');
+      location.reload();
+    })
   }
 
   if (seats === null) return <Loader/>
+  
   return(
     <StyledSeats>
       <RouteTitle>Selecione o(s) Assento(s)</RouteTitle>
@@ -49,7 +61,7 @@ const Seats = ({ order, setOrder }) => {
         <LabelForm htmlFor="name">Nome do comprador(a)</LabelForm>
         <InputForm id="name" type="text" placeholder="Digite seu nome..." required value={name} onChange={e => setName(e.target.value)} />
         <LabelForm htmlFor="cpf">CPF do comprador(a)</LabelForm>
-        <InputForm id="cpf" type="number" placeholder="Digite seu CPF..." required value={cpf} onChange={e => setCpf(e.target.value)} />
+        <InputForm id="cpf" type="text" mask='999.999.999-99' maskChar={null} placeholder="Digite seu CPF..." required value={cpf} onChange={e => setCpf(e.target.value)} />
         <ButtonForm type="submit">Reservar assento(s)</ButtonForm>
       </FormOrder>
     </StyledSeats>
@@ -97,7 +109,7 @@ const LabelForm = styled.label`
   color: white;
 `
 
-const InputForm = styled.input`
+const InputForm = styled(ReactInputMask)`
   height: 40px;
   padding: 0 15px;
   margin-bottom: 10px; 

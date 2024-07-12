@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/" element={<Main></Main>}/>
           <Route path="/sessoes/:idMovie" element={<DaySessions></DaySessions>}/>
           <Route path="/assentos/:idSession" element={<Seats order={order} setOrder={setOrder} ></Seats>}/>
-          <Route path="/sucesso" element={<Ticket></Ticket>}/>
+          <Route path="/sucesso" element={<Ticket order={order} ></Ticket>}/>
         </Routes>
       </Layout>
     </BrowserRouter>
